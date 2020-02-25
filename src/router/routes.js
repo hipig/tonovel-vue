@@ -10,8 +10,20 @@ export default [
     children: [
       {
         path: '/',
-        name: 'HelloWorld',
-        component: view('HelloWorld')
+        name: 'dashboard',
+        component: view('dashboard/index')
+      }
+    ]
+  },
+  {
+    path: '',
+    name: 'BlankLayout',
+    component: view('BlankLayout', 'layouts'),
+    children: [
+      {
+        path: '/auth/login',
+        name: 'authLogin',
+        component: view('auth/login')
       }
     ]
   }
