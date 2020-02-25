@@ -1,7 +1,6 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <h1>Welcome to VuejsCaff.com</h1>
+  <div id="app" class="font-sans leading-none text-gray-700 bg-gray-200 antialiased">
+  <router-view></router-view>
   </div>
 </template>
 
@@ -11,13 +10,6 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+
 </style>
