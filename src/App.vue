@@ -1,6 +1,5 @@
 <template>
-  <div id="app" class="font-sans leading-none text-gray-700 bg-gray-200 antialiased">
-    <portal-target name="dropdown" slim />
+  <div id="app">
     <router-view />
   </div>
 </template>

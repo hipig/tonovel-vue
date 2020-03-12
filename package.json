@@ -1,8 +1,8 @@
 {
-  "name": "mono",
+  "name": "tonovel",
   "version": "1.0.0",
   "description": "a admin panel",
-  "author": "pigzzz123 <205270006@qq.com>",
+  "author": "higpig <205270006@qq.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
@@ -20,6 +20,8 @@
     "vuex-persistedstate": "^2.7.1"
   },
   "devDependencies": {
+    "@tailwindcss/custom-forms": "^0.2.1",
+    "@tailwindcss/ui": "^0.1.3",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",

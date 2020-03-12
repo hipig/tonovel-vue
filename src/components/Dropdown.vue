@@ -1,61 +1,42 @@
 <template>
-  <button type="button" @click="show = true" class="focus:outline-none">
+  <div @click="show = !show" v-clickoutside="handleClickOutside" class="relative">
     <slot />
-    <portal v-if="show" to="dropdown">
-      <div>
-        <div style="position: fixed; top: 0; right: 0; left: 0; bottom: 0; z-index: 99998; background: black; opacity: .2" @click="show = false" />
-        <div ref="dropdown" style="position: absolute; z-index: 99999;" @click.stop="show = autoClose ? false : true">
-          <slot name="dropdown" />
-        </div>
+    <transition
+      enter-class="transform opacity-0 scale-95"
+      enter-active-class="transition ease-out duration-100"
+      enter-to-class="transform opacity-100 scale-100"
+      leave-class="transform opacity-100 scale-100"
+      leave-active-class="transition ease-in duration-75"
+      leave-to-class="transform opacity-0 scale-95"
+    >
+      <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg" v-show="show">
+        <slot name="dropdown" />
       </div>
-    </portal>
-  </button>
+    </transition>
+  </div>
 </template>
 
 <script>
-import Popper from 'popper.js'
+import clickoutside from '@/utils/clickoutside'
+
 export default {
-  props: {
-    placement: {
-      type: String,
-      default: 'bottom-end',
-    },
-    boundary: {
-      type: String,
-      default: 'scrollParent',
-    },
-    autoClose: {
-      type: Boolean,
-      default: true,
-    },
+  name: 'Dropdown',
+  directives: {
+    clickoutside
   },
-  data() {
+  data () {
     return {
-      show: false,
+      show: false
     }
   },
-  watch: {
-    show(show) {
-      if (show) {
-        this.$nextTick(() => {
-          this.popper = new Popper(this.$el, this.$refs.dropdown, {
-            placement: this.placement,
-            modifiers: {
-              preventOverflow: { boundariesElement: this.boundary },
-            },
-          })
-        })
-      } else if (this.popper) {
-        setTimeout(() => this.popper.destroy(), 100)
-      }
-    },
-  },
-  mounted() {
-    document.addEventListener('keydown', (e) => {
-      if (e.keyCode === 27) {
-        this.show = false
-      }
-    })
-  },
+  methods: {
+    handleClickOutside () {
+      this.show = false
+    }
+  }
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>
