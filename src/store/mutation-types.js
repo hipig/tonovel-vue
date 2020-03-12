@@ -1,2 +1,2 @@
-// user
-export const UPDATE_USER = 'UPDATE_USER'
+// search
+export const UPDATE_SEARCH_VALUE = 'UPDATE_SEARCH_VALUE'

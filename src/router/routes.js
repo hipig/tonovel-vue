@@ -5,13 +5,25 @@ function view (view, path='views') {
 export default [
   {
     path: '',
-    name: 'MainLayout',
-    component: view('MainLayout', 'layouts'),
+    name: 'blankLayout',
+    component: view('BlankLayout', 'layouts'),
     children: [
       {
         path: '/',
-        name: 'Index',
+        name: 'index',
         component: view('Index')
+      }
+    ]
+  },
+  {
+    path: '',
+    name: 'mainLayout',
+    component: view('MainLayout', 'layouts'),
+    children: [
+      {
+        path: '/search',
+        name: 'search',
+        component: view('Search')
       }
     ]
   }
