@@ -7,8 +7,8 @@
         <div class="shadow-md rounded-md p-6 flex items-center bg-white mb-6">
           <div class="flex-1">
             <div class="flex items-center">
-              <a href="#" class="text-2xl text-gray-900">伏天氏</a>
-              <div class="inline-flex ml-6">
+              <a href="/detail" class="text-2xl text-gray-900">伏天氏</a>
+              <div class="inline-flex ml-4">
                 <span class="border rounded-md px-2 leading-6 text-sm bg-gray-200">玄幻小说</span>
               </div>
             </div>
@@ -24,7 +24,7 @@
           <div class="flex-1">
             <div class="flex items-center">
               <a href="#" class="text-2xl text-gray-900">元尊</a>
-              <div class="inline-flex ml-6">
+              <div class="inline-flex ml-4">
                 <span class="border rounded-md px-2 leading-6 text-sm bg-gray-200">玄幻小说</span>
               </div>
             </div>
@@ -40,7 +40,7 @@
           <div class="flex-1">
             <div class="flex items-center">
               <a href="#" class="text-2xl text-gray-900">伏天氏</a>
-              <div class="inline-flex ml-6">
+              <div class="inline-flex ml-4">
                 <span class="border rounded-md px-2 leading-6 text-sm bg-gray-200">玄幻小说</span>
               </div>
             </div>
@@ -56,7 +56,7 @@
           <div class="flex-1">
             <div class="flex items-center">
               <a href="#" class="text-2xl text-gray-900">元尊</a>
-              <div class="inline-flex ml-6">
+              <div class="inline-flex ml-4">
                 <span class="border rounded-md px-2 leading-6 text-sm bg-gray-200">玄幻小说</span>
               </div>
             </div>
@@ -72,7 +72,7 @@
           <div class="flex-1">
             <div class="flex items-center">
               <a href="#" class="text-2xl text-gray-900">伏天氏</a>
-              <div class="inline-flex ml-6">
+              <div class="inline-flex ml-4">
                 <span class="border rounded-md px-2 leading-6 text-sm bg-gray-200">玄幻小说</span>
               </div>
             </div>
@@ -88,7 +88,7 @@
           <div class="flex-1">
             <div class="flex items-center">
               <a href="#" class="text-2xl text-gray-900">元尊</a>
-              <div class="inline-flex ml-6">
+              <div class="inline-flex ml-4">
                 <span class="border rounded-md px-2 leading-6 text-sm bg-gray-200">玄幻小说</span>
               </div>
             </div>

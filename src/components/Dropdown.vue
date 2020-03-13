@@ -9,7 +9,7 @@
       leave-active-class="transition ease-in duration-75"
       leave-to-class="transform opacity-0 scale-95"
     >
-      <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg" v-show="show">
+      <div class="origin-top-right absolute right-0 mt-2 w-48 z-50" v-show="show">
         <slot name="dropdown" />
       </div>
     </transition>

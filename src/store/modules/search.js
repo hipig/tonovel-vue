@@ -1,5 +1,4 @@
-import router from '@/router'
-import { UPDATE_SEARCH_VALUE } from '../mutation-types'
+import * as types from '../mutation-types'
 
 // state
 export const state = {
@@ -13,7 +12,7 @@ export const getters = {
 
 // mutations
 export const mutations = {
-  [UPDATE_SEARCH_VALUE] (state, value) {
+  [types.UPDATE_SEARCH_VALUE] (state, value) {
     state.value = value
   }
 }

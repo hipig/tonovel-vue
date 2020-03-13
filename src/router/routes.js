@@ -24,6 +24,16 @@ export default [
         path: '/search',
         name: 'search',
         component: view('Search')
+      },
+      {
+        path: '/detail',
+        name: 'detail',
+        component: view('Detail')
+      },
+      {
+        path: '/read',
+        name: 'read',
+        component: view('Read')
       }
     ]
   }
