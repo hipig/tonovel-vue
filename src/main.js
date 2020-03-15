@@ -5,6 +5,7 @@ import App from './App'
 import store from './store'
 import router from './router'
 import { mixin as clickaway } from 'vue-clickaway'
+import toast from './components/toast/index'
 // import { ValidationProvider, localize, extend } from 'vee-validate'
 // import zh_CN from 'vee-validate/dist/locale/zh_CN.json'
 
@@ -13,6 +14,7 @@ import "./assets/css/app.css"
 
 Vue.config.productionTip = false
 Vue.mixin(clickaway)
+Vue.use(toast)
 
 // Vue.component('validation-provider', ValidationProvider)
 // localize('zh_CN', zh_CN)

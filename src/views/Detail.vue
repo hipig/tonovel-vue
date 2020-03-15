@@ -14,8 +14,8 @@
         <div class="text-gray-500 pt-1" v-if="info.author">作者：<span>{{info.author}}</span></div>
         <div class="border-t border-dashed pt-2 my-2" v-html="info.description">{{info.description}}</div>
         <div class="flex">
-          <a href="#" class="inline-flex items-center px-4 py-2 border border-gray-300 font-medium rounded-md text-gray-700 text-sm bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">继续阅读</a>
-          <a href="#" class="ml-2 inline-flex items-center px-4 py-2 border border-transparent font-medium rounded-md text-white text-sm bg-gray-800 hover:bg-gray-700 focus:outline-none focus:shadow-outline-gray focus:border-gray-900 active:bg-gray-900 transition duration-150 ease-in-out">加入书架</a>
+          <a href="javascript:;" @click="$toast('功能正在开发中')" class="inline-flex items-center px-4 py-2 border border-gray-300 font-medium rounded-md text-gray-700 text-sm bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">继续阅读</a>
+          <a href="javascript:;" @click="$toast('功能正在开发中')" class="ml-2 inline-flex items-center px-4 py-2 border border-transparent font-medium rounded-md text-white text-sm bg-gray-800 hover:bg-gray-700 focus:outline-none focus:shadow-outline-gray focus:border-gray-900 active:bg-gray-900 transition duration-150 ease-in-out">加入书架</a>
         </div>
       </div>
     </div>
@@ -71,7 +71,7 @@ export default {
         this.chapterLoading = false
         this.chapterList = res.data
       })
-    },
+    }
   }
 }
 </script>
