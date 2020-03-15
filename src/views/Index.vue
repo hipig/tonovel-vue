@@ -24,12 +24,6 @@ export default {
   data () {
     return {
     }
-  },
-  mounted () {
-    this.$store.dispatch('search/clearValue')
-  },
-  methods: {
-
   }
 }
 </script>

@@ -24,5 +24,7 @@ console.log(requireContext)
 
 export default new Vuex.Store({
   modules,
-  plugins: [createPersistedState()]
+  plugins: [createPersistedState({
+    paths:['setting']
+  })]
 })

@@ -4,24 +4,27 @@ import Vue from 'vue'
 import App from './App'
 import store from './store'
 import router from './router'
-import { ValidationProvider, localize, extend } from 'vee-validate'
-import zh_CN from 'vee-validate/dist/locale/zh_CN.json'
+import { mixin as clickaway } from 'vue-clickaway'
+// import { ValidationProvider, localize, extend } from 'vee-validate'
+// import zh_CN from 'vee-validate/dist/locale/zh_CN.json'
 
-import "./assets/css/tailwind.css"
+import "nprogress/nprogress.css"
+import "./assets/css/app.css"
 
 Vue.config.productionTip = false
+Vue.mixin(clickaway)
 
-Vue.component('validation-provider', ValidationProvider)
-localize('zh_CN', zh_CN)
-extend('required', {
-  validate (value) {
-    return {
-      required: true,
-      valid: ['', null, undefined].indexOf(value) === -1
-    };
-  },
-  computesRequired: true
-});
+// Vue.component('validation-provider', ValidationProvider)
+// localize('zh_CN', zh_CN)
+// extend('required', {
+//   validate (value) {
+//     return {
+//       required: true,
+//       valid: ['', null, undefined].indexOf(value) === -1
+//     };
+//   },
+//   computesRequired: true
+// });
 
 /* eslint-disable no-new */
 new Vue({

@@ -34,8 +34,6 @@ export default {
     search() {
       const value = this.searchValue
       if (value !== '') {
-        console.log(value);
-
         this.$router.push({ name: 'search', query: { q: value } })
       }
     },

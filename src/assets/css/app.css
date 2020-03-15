@@ -1,0 +1,13 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+
+#nprogress .bar {
+  @apply bg-gray-800;
+}
+#nprogress .spinner-icon {
+  @apply border-gray-800;
+}

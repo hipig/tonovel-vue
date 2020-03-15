@@ -4,102 +4,24 @@
     <div class="mt-8">
       <div class="text-gray-500 mb-2">关键词为 “{{keyword}}” 的搜索小说结果：</div>
       <div class="flex flex-col">
-        <div class="shadow-md rounded-md p-6 flex items-center bg-white mb-6">
-          <div class="flex-1">
-            <div class="flex items-center">
-              <a href="/detail" class="text-2xl text-gray-900">伏天氏</a>
-              <div class="inline-flex ml-4">
-                <span class="border rounded-md px-2 leading-6 text-sm bg-gray-200">玄幻小说</span>
+        <loading :loading="isLoading">
+          <div v-for="(b, i) in list" :key="i" class="shadow-md rounded-md p-6 flex items-center bg-white mb-6">
+            <div class="flex-1">
+              <div class="flex items-center">
+                <router-link :to="{ name: 'detail', query: { detail_url: b.url, source: b.source }}" class="text-2xl text-gray-900">{{b.name}}</router-link>
+                <div class="inline-flex ml-4" v-if="b.category">
+                  <span class="border rounded-md px-2 leading-6 text-sm bg-gray-200">{{b.category}}</span>
+                </div>
               </div>
+              <div class="text-gray-500 pt-1" v-if="b.new_chapter">最新章节：<span>{{b.new_chapter}}</span></div>
+              <div class="text-gray-500 pt-1">作者：<span>{{b.author}}</span></div>
+              <div class="text-gray-500 pt-1">来源：<a :href="b.url" target="_blank">{{b.url}}</a></div>
             </div>
-            <div class="text-gray-500 pt-1">最新章节：<a href="#" class="text-gray-700 hover:text-gray-800">第1713章 推迟</a></div>
-            <div class="text-gray-500 pt-1">作者：<span>净无痕</span></div>
-            <div class="text-gray-500 pt-1">来源：<a href="#" target="_blank">https://www.jupindai.com/book/87.html</a></div>
+            <a href="#" class="h-32 border rounded p-1" v-if="b.cover">
+              <img class="h-full" :src="b.cover" alt="">
+            </a>
           </div>
-          <a href="#" class="h-32 border rounded p-1">
-            <img class="h-full" src="https://www.jupindai.com/files/article/image/0/87/87s.jpg" alt="">
-          </a>
-        </div>
-        <div class="shadow-md rounded-md p-6 flex items-center bg-white mb-6">
-          <div class="flex-1">
-            <div class="flex items-center">
-              <a href="#" class="text-2xl text-gray-900">元尊</a>
-              <div class="inline-flex ml-4">
-                <span class="border rounded-md px-2 leading-6 text-sm bg-gray-200">玄幻小说</span>
-              </div>
-            </div>
-            <div class="text-gray-500 pt-1">最新章节：<a href="#" class="text-gray-700 hover:text-gray-800">第一千一百七十二章 秘法之王</a></div>
-            <div class="text-gray-500 pt-1">作者：<span>天蚕土豆</span></div>
-            <div class="text-gray-500 pt-1">来源：<a href="#" target="_blank">https://www.jupindai.com/book/101.html</a></div>
-          </div>
-          <a href="#" class="h-32 border rounded p-1">
-            <img class="h-full" src="https://www.jupindai.com/files/article/image/0/101/101s.jpg" alt="">
-          </a>
-        </div>
-        <div class="shadow-md rounded-md p-6 flex items-center bg-white mb-6">
-          <div class="flex-1">
-            <div class="flex items-center">
-              <a href="#" class="text-2xl text-gray-900">伏天氏</a>
-              <div class="inline-flex ml-4">
-                <span class="border rounded-md px-2 leading-6 text-sm bg-gray-200">玄幻小说</span>
-              </div>
-            </div>
-            <div class="text-gray-500 pt-1">最新章节：<a href="#" class="text-gray-700 hover:text-gray-800">第1713章 推迟</a></div>
-            <div class="text-gray-500 pt-1">作者：<span>净无痕</span></div>
-            <div class="text-gray-500 pt-1">来源：<a href="#" target="_blank">https://www.jupindai.com/book/87.html</a></div>
-          </div>
-          <a href="#" class="h-32 border rounded p-1">
-            <img class="h-full" src="https://www.jupindai.com/files/article/image/0/87/87s.jpg" alt="">
-          </a>
-        </div>
-        <div class="shadow-md rounded-md p-6 flex items-center bg-white mb-6">
-          <div class="flex-1">
-            <div class="flex items-center">
-              <a href="#" class="text-2xl text-gray-900">元尊</a>
-              <div class="inline-flex ml-4">
-                <span class="border rounded-md px-2 leading-6 text-sm bg-gray-200">玄幻小说</span>
-              </div>
-            </div>
-            <div class="text-gray-500 pt-1">最新章节：<a href="#" class="text-gray-700 hover:text-gray-800">第一千一百七十二章 秘法之王</a></div>
-            <div class="text-gray-500 pt-1">作者：<span>天蚕土豆</span></div>
-            <div class="text-gray-500 pt-1">来源：<a href="#" target="_blank">https://www.jupindai.com/book/101.html</a></div>
-          </div>
-          <a href="#" class="h-32 border rounded p-1">
-            <img class="h-full" src="https://www.jupindai.com/files/article/image/0/101/101s.jpg" alt="">
-          </a>
-        </div>
-        <div class="shadow-md rounded-md p-6 flex items-center bg-white mb-6">
-          <div class="flex-1">
-            <div class="flex items-center">
-              <a href="#" class="text-2xl text-gray-900">伏天氏</a>
-              <div class="inline-flex ml-4">
-                <span class="border rounded-md px-2 leading-6 text-sm bg-gray-200">玄幻小说</span>
-              </div>
-            </div>
-            <div class="text-gray-500 pt-1">最新章节：<a href="#" class="text-gray-700 hover:text-gray-800">第1713章 推迟</a></div>
-            <div class="text-gray-500 pt-1">作者：<span>净无痕</span></div>
-            <div class="text-gray-500 pt-1">来源：<a href="#" target="_blank">https://www.jupindai.com/book/87.html</a></div>
-          </div>
-          <a href="#" class="h-32 border rounded p-1">
-            <img class="h-full" src="https://www.jupindai.com/files/article/image/0/87/87s.jpg" alt="">
-          </a>
-        </div>
-        <div class="shadow-md rounded-md p-6 flex items-center bg-white mb-6">
-          <div class="flex-1">
-            <div class="flex items-center">
-              <a href="#" class="text-2xl text-gray-900">元尊</a>
-              <div class="inline-flex ml-4">
-                <span class="border rounded-md px-2 leading-6 text-sm bg-gray-200">玄幻小说</span>
-              </div>
-            </div>
-            <div class="text-gray-500 pt-1">最新章节：<a href="#" class="text-gray-700 hover:text-gray-800">第一千一百七十二章 秘法之王</a></div>
-            <div class="text-gray-500 pt-1">作者：<span>天蚕土豆</span></div>
-            <div class="text-gray-500 pt-1">来源：<a href="#" target="_blank">https://www.jupindai.com/book/101.html</a></div>
-          </div>
-          <a href="#" class="h-32 border rounded p-1">
-            <img class="h-full" src="https://www.jupindai.com/files/article/image/0/101/101s.jpg" alt="">
-          </a>
-        </div>
+        </loading>
       </div>
     </div>
   </div>
@@ -107,14 +29,19 @@
 
 <script>
 import SearchInput from '@/components/SearchInput'
+import Loading from '@/components/Loading'
+import {apiSearch} from '@/api'
 
 export default {
   components: {
-    SearchInput
+    SearchInput,
+    Loading
   },
   data () {
     return {
-      keyword: ""
+      keyword: "",
+      list: [],
+      isLoading: true
     }
   },
   beforeRouteEnter(to, from, next) {
@@ -140,6 +67,11 @@ export default {
         this.keyword = keyword
         // 需要提交事件类型，以更新搜索框的值
         this.$store.dispatch('search/updateValue', keyword)
+
+        apiSearch(keyword).then(res => {
+          this.isLoading = false
+          this.list = res.data
+        })
       }
     }
   }

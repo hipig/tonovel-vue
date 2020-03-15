@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import routes from './routes'
 import Router from 'vue-router'
-import store from '@/store'
+import NProgress from "nprogress"
+
 
 Vue.use(Router)
 
@@ -13,6 +14,7 @@ Router.prototype.push = function push(location) {
 const router = createRouter()
 
 router.beforeEach(before)
+router.afterEach(after)
 
 export default router
 
@@ -27,11 +29,10 @@ function createRouter () {
 }
 
 function before(to, form, next) {
-  const user = Boolean(store.state.user.user)
+  NProgress.start()
+  next()
+}
 
-  if (user || to.path.indexOf('/auth/') !== -1) {
-    next()
-  }else {
-    next('/auth/login')
-  }
+function after(to, form, next) {
+  NProgress.done()
 }

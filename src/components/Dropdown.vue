@@ -1,5 +1,5 @@
 <template>
-  <div @click="show = !show" v-clickoutside="handleClickOutside" class="relative">
+  <div @click="show = !show" v-on-clickaway="handleClickOutside" class="relative">
     <slot />
     <transition
       enter-class="transform opacity-0 scale-95"
@@ -17,13 +17,8 @@
 </template>
 
 <script>
-import clickoutside from '@/utils/clickoutside'
-
 export default {
   name: 'Dropdown',
-  directives: {
-    clickoutside
-  },
   data () {
     return {
       show: false
