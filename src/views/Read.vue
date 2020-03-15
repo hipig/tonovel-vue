@@ -63,6 +63,7 @@
                           :theme="$store.getters['setting/theme']"
                           :font-family="$store.getters['setting/fontFamily']"
                           :font-size="$store.getters['setting/fontSize']"
+                          :line-height="$store.getters['setting/lineHeight']"
                         ></setting>
                       </div>
                     </transition>
@@ -99,7 +100,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import Loading from '@/components/Loading'
-import Setting from '@/components/novel/Setting'
+import Setting from '@/components/book/Setting'
 import { apiChapters, apiContent } from '@/api'
 
 export default {
@@ -122,9 +123,11 @@ export default {
     getFontClass () {
       let family = this.$store.getters['setting/fontFamilySet']
       let size = this.$store.getters['setting/fontSizeSet']
+      let height = this.$store.getters['setting/lineHeightSet']
       return {
         [family]: true,
-        [size]: true
+        [size]: true,
+        [height]: true
       }
     }
   },

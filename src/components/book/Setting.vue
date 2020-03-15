@@ -33,6 +33,16 @@
           </div>
         </div>
       </div>
+      <div class="flex items-center mb-4">
+        <div class="w-1/4 py-2 text-lg">内容行高</div>
+        <div class="flex-1">
+          <div class="flex flex-wrap">
+            <div class="px-4 sm:px-8 py-1 sm:py-2 border border-r-0 hover:bg-gray-200 rounded-tl-lg rounded-bl-lg cursor-pointer text-xl leading-tight font-semibold" @click="decreaseLineHeight"><span>H</span>-</div>
+            <div class="px-4 sm:px-8 py-1 sm:py-2 border flex items-center text-lg leading-tight">{{currentLineHeight}}</div>
+            <div class="px-4 sm:px-8 py-1 sm:py-2 border border-l-0 hover:bg-gray-200 rounded-tr-lg rounded-br-lg cursor-pointer text-xl leading-tight font-semibold" @click="increaseLineHeight"><span>H</span>+</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -51,6 +61,10 @@ export default {
     fontSize: {
       type: Number,
       default: 3
+    },
+    lineHeight: {
+      type: Number,
+      default: 4
     }
   },
   data () {
@@ -61,9 +75,13 @@ export default {
       fontSizes: [
         'xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'
       ],
+      lineHeights: [
+      'none', 'tight', 'snug', 'normal', 'relaxed'
+      ],
       currentTheme: this.theme,
       currentFontFamily: this.fontFamily,
-      currentFontSize: this.fontSize
+      currentFontSize: this.fontSize,
+      currentLineHeight: this.lineHeight
     }
   },
   computed: {
@@ -115,6 +133,23 @@ export default {
       }
       this.currentFontSize = size
       this.$store.dispatch('setting/updateFontSize', size)
+      event.stopPropagation()
+    },
+    increaseLineHeight () {
+      let height = this.currentLineHeight
+      let len = this.lineHeights.length
+      height = height >= len ? len : height+1
+      this.currentLineHeight = height
+      this.$store.dispatch('setting/updateLineHeight', height)
+      event.stopPropagation()
+    },
+    decreaseLineHeight () {
+      let height = this.currentLineHeight
+      if (height > 1) {
+        height--
+      }
+      this.currentLineHeight = height
+      this.$store.dispatch('setting/updateLineHeight', height)
       event.stopPropagation()
     }
   }

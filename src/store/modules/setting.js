@@ -4,7 +4,8 @@ import * as types from '../mutation-types'
 export const state = {
   theme: 'orange',
   fontFamily: 'sans',
-  fontSize: 3
+  fontSize: 3,
+  lineHeight: 4,
 }
 
 // getters
@@ -23,6 +24,7 @@ export const getters = {
   },
   fontFamily: state => state.fontFamily,
   fontSize: state => state.fontSize,
+  lineHeight: state => state.lineHeight,
   fontFamilySet: state => {
     return 'font-'+state.fontFamily
   },
@@ -32,6 +34,12 @@ export const getters = {
     ]
     return 'text-'+fontSizes[state.fontSize-1]
   },
+  lineHeightSet: state => {
+    var lineHeights = [
+      'none', 'tight', 'snug', 'normal', 'relaxed'
+    ]
+    return 'leading-'+lineHeights[state.lineHeight-1]
+  }
 }
 
 // mutations
@@ -44,6 +52,9 @@ export const mutations = {
   },
   [types.UPDATE_FONT_SIZE] (state, fontSize) {
     state.fontSize = fontSize
+  },
+  [types.UPDATE_LINE_HEIGHT] (state, lineHeight) {
+    state.lineHeight = lineHeight
   }
 }
 
@@ -57,5 +68,8 @@ export const actions = {
   },
   updateFontSize({ commit }, fontSize) {
     commit('UPDATE_FONT_SIZE', fontSize)
+  },
+  updateLineHeight({ commit }, lineHeight) {
+    commit('UPDATE_LINE_HEIGHT', lineHeight)
   }
 }
