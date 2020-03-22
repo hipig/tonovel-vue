@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed inset-x-0 top-0 px-4 flex justify-center" v-if="toastShow">
+  <div class="fixed inset-x-0 top-0 px-4 flex justify-center z-50" v-if="toastShow">
     <transition
       enter-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
       enter-active-class="ease-out duration-300"
@@ -8,7 +8,7 @@
       leave-active-class="ease-in duration-200"
       leave-to-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
     >
-      <div class="transform transition-all text-white bg-gray-900 shadow-md rounded-md py-2 px-6 max-w-lg mt-10 z-20">{{message}}</div>
+      <div class="transform transition-all text-white bg-gray-900 shadow-md rounded-md py-2 px-6 max-w-lg mt-10 z-50" @click="toastShow = !toastShow">{{message}}</div>
     </transition>
 
   </div>

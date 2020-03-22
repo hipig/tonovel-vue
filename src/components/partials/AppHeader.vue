@@ -45,7 +45,7 @@
         </div>
       </div>
     </div>
-    <div :class="{'block': navOpen, 'hidden': !navOpen}" class="sm:hidden">
+    <div :class="{'block': navOpen, 'hidden': !navOpen}">
       <div class="px-2 pt-2 pb-3">
         <a href="#" class="block px-3 py-2 rounded-md text-base font-medium focus:outline-none bg-gray-200 focus:bg-gray-200 transition duration-150 ease-in-out">更新日志</a>
         <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium focus:outline-none focus:bg-gray-200 transition duration-150 ease-in-out">捐赠</a>
@@ -65,7 +65,7 @@ export default {
   },
   data () {
     return {
-      navOpen: true
+      navOpen: false
     }
   }
 }

@@ -6,7 +6,7 @@
           <div class="flex items-center justify-between flex-wrap">
             <div class="flex-shrink-0">
               <div class="rounded-md shadow-sm">
-                <router-link :to="{ name: 'read', query: { url: content.previous_url, source: content.source }}" class="flex items-center justify-center px-4 py-2 border border-transparent text-sm leading-tight font-medium rounded-lg bg-white hover:text-gray-600 focus:outline-none focus:shadow-outline transition ease-in-out duration-150">
+                <router-link :to="{ name: 'read', query: { detail_url: content.detail_url, chapter_url: content.previous_url, source: content.source }}" class="flex items-center justify-center px-4 py-2 border border-transparent text-sm leading-tight font-medium rounded-lg bg-white hover:text-gray-600 focus:outline-none focus:shadow-outline transition ease-in-out duration-150">
                   上一章
                 </router-link>
               </div>
@@ -35,7 +35,7 @@
                           <loading :loading="chapterLoading">
                             <div class="flex flex-wrap w-full border-t border-dashed">
                               <div v-for="(c, i) in chapterList" :key="i" class="flex w-full sm:w-1/3 border-b border-dashed">
-                                <router-link :to="{ name: 'read', query: { detail_url: detailURL, chapter_url: c.chapter_url, source: c.source }}" class="text-sm hover:text-gray-800 hover:underline py-2">{{c.title}}</router-link>
+                                <router-link :to="{ name: 'read', query: { detail_url: c.detail_url, chapter_url: c.chapter_url, source: c.source }}" class="text-sm hover:text-gray-800 hover:underline py-2">{{c.title}}</router-link>
                               </div>
                             </div>
                           </loading>
@@ -79,7 +79,7 @@
             </div>
             <div class="flex-shrink-0">
               <div class="rounded-md shadow-sm">
-                <router-link :to="{ name: 'read', query: { url: content.next_url, source: content.source }}" class="flex items-center justify-center px-4 py-2 border border-transparent text-sm leading-tight font-medium rounded-lg bg-white hover:text-gray-600 focus:outline-none focus:shadow-outline transition ease-in-out duration-150">
+                <router-link :to="{ name: 'read', query: { detail_url: content.detail_url, chapter_url: content.next_url, source: content.source }}" class="flex items-center justify-center px-4 py-2 border border-transparent text-sm leading-tight font-medium rounded-lg bg-white hover:text-gray-600 focus:outline-none focus:shadow-outline transition ease-in-out duration-150">
                   下一章
                 </router-link>
               </div>
@@ -91,7 +91,8 @@
     <div class="rounded-bl-md rounded-br-md p-6" :class="$store.getters['setting/themeSet'].contentTheme">
       <loading :loading="contentLoading">
         <div class="text-center text-3xl border-b border-dashed text-gray-900 pb-2 mb-4" :class="$store.getters['setting/themeSet'].hrTheme">{{content.title}}</div>
-        <div class="text-gray-700" :class="getFontClass" v-html="content.text">{{content.text}}</div>
+        <div class="text-gray-700" :class="getFontClass" v-html="content.text" v-if="content.text">{{content.text}}</div>
+        <div class="text-gray-700 h-60 flex items-center justify-center" v-else>没有内容了...</div>
       </loading>
     </div>
   </div>
@@ -148,7 +149,6 @@ export default {
       this.settingShow = false
     },
     getContent(detail_url, chapter_url, source) {
-      this.detailURL = detail_url
       apiContent(detail_url, chapter_url, source).then(res => {
         this.contentLoading = false
         this.content = res.data

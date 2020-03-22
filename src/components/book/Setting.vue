@@ -84,13 +84,6 @@ export default {
       currentLineHeight: this.lineHeight
     }
   },
-  computed: {
-    currentSize () {
-      let fontSizes = this.fontSizes
-      let fontSize = this.fontSize > length(fontSizes) ? length(fontSizes) : this.fontSize
-      return fontSizes[fontSize]
-    }
-  },
   methods: {
     getThemeClass (theme) {
       let bgColor = 'bg-'+theme+ '-50'
