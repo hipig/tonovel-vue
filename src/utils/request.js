@@ -42,9 +42,10 @@ const showStatus = (number) => {
   return `${message}，请检查网络或联系管理员！`
 }
 
+
 const request = axios.create({
   // 联调
-  baseURL: 'http://localhost:8080/',
+  baseURL: process.env.API_BASE_URL,
   headers: {
     get: {
       'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
